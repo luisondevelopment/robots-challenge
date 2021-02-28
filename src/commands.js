@@ -13,14 +13,14 @@ function forward(robot, map) {
     const lost = isLost(newPosition, map);
 
     if (lost) {
-        const hasSent = scent.isInDanger(robot.position)
-        if (hasSent) {
+        const hasScent = scent.isInDanger(robot.position)
+        if (hasScent) {
             return;
         }
 
         robot.lost = true;
         scent.new(robot.position);
-        console.log('new sent: ', robot.position);
+        console.log('new scent: ', robot.position);
     } else {
         robot.position = newPosition;
     }
